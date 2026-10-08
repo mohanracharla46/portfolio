@@ -122,6 +122,86 @@ export const PORTFOLIO_DATA = {
     }
   ],
 
+  smallProjects: [
+    {
+      id: "nkxus-portfolio",
+      number: "01",
+      title: "NKXUS PORTFOLIO",
+      category: "AGENCY PORTFOLIO",
+      subtitle: "Showcase platform for digital agency & tech offerings.",
+      domain: "portfolio.nkxus.com",
+      url: "https://portfolio.nkxus.com/",
+      tags: ["React", "CSS3", "Agency Platform"],
+      accentColor: "#B8FF3C"
+    },
+    {
+      id: "amarnath-sarangula",
+      number: "02",
+      title: "AMARNATH SARANGULA",
+      category: "PERSONAL BRAND",
+      subtitle: "Executive personal brand website with custom modern aesthetic.",
+      domain: "amarnathsarangula.in",
+      url: "https://amarnathsarangula.in/",
+      tags: ["Web Design", "Frontend", "Branding"],
+      accentColor: "#4E9FFF"
+    },
+    {
+      id: "psmsk",
+      number: "03",
+      title: "PSMSK TEMPLE",
+      category: "TEMPLE & DEVOTIONAL",
+      subtitle: "Official temple digital portal, darshan info & community services.",
+      domain: "psmsk.com",
+      url: "https://psmsk.com/",
+      tags: ["Temple Portal", "Devotional", "Community"],
+      accentColor: "#FF9F1C"
+    },
+    {
+      id: "vwish-technologies",
+      number: "04",
+      title: "VWISH TECHNOLOGIES",
+      category: "IT SERVICES",
+      subtitle: "Technology solutions provider portal & client interface.",
+      domain: "vwishtechnologies.com",
+      url: "https://vwishtechnologies.com/",
+      tags: ["IT Services", "React", "Node.js"],
+      accentColor: "#9D4EDD"
+    },
+    {
+      id: "the-glory-spa",
+      number: "05",
+      title: "THE GLORY SPA",
+      category: "WELLNESS & LIFESTYLE",
+      subtitle: "Premium spa booking & wellness luxury portal.",
+      domain: "thegloryspa.in",
+      url: "https://thegloryspa.in/",
+      tags: ["UI/UX", "Booking System", "Lifestyle"],
+      accentColor: "#FF5E36"
+    },
+    {
+      id: "the-bliss-wellness",
+      number: "06",
+      title: "THE BLISS WELLNESS",
+      category: "LUXURY SPA",
+      subtitle: "Luxury health, wellness and massage client website.",
+      domain: "theblisswellnessspa.in",
+      url: "https://theblisswellnessspa.in/",
+      tags: ["Luxury UI", "Responsive", "Spa Platform"],
+      accentColor: "#B8FF3C"
+    },
+    {
+      id: "hyderabad-spas",
+      number: "07",
+      title: "HYDERABAD SPAS",
+      category: "DIRECTORY & ENGINE",
+      subtitle: "City-wide spa directory and customer lead engine.",
+      domain: "hyderabadspas.com",
+      url: "https://hyderabadspas.com/",
+      tags: ["Directory Hub", "SEO Engine", "Web App"],
+      accentColor: "#4E9FFF"
+    }
+  ],
+
   capabilities: [
     { name: "WEB APPLICATIONS", desc: "High performance modern web applications with clean, responsive user interfaces." },
     { name: "PLATFORMS", desc: "Scalable multi-tenant platforms engineered from conceptual architecture to deployment." },

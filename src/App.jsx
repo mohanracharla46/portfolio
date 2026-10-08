@@ -6,6 +6,7 @@ import { Navbar } from './components/Navigation/Navbar';
 import { Hero } from './components/Hero/Hero';
 import { Intro } from './components/Intro/Intro';
 import { Projects } from './components/Projects/Projects';
+import { SmallProjects } from './components/SmallProjects/SmallProjects';
 import { Capabilities } from './components/Capabilities/Capabilities';
 import { TechStack } from './components/TechStack/TechStack';
 import { Experience } from './components/Experience/Experience';
@@ -42,6 +43,7 @@ export default function App() {
           <Hero />
           <Intro />
           <Projects />
+          <SmallProjects />
           <Capabilities />
           <TechStack />
           <Experience />
