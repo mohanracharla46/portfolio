@@ -23,6 +23,8 @@
 .whatsapp-trigger-btn {
   width: 58px;
   height: 58px;
+  padding: 0;
+  margin: 0;
   border-radius: 50%;
   background: #25D366;
   color: #ffffff;
@@ -35,6 +37,13 @@
   position: relative;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
+}
+
+.wa-svg-icon {
+  display: block;
+  margin: 0 auto;
+  pointer-events: none;
+  transform: translate(0, 0);
 }
 
 .whatsapp-trigger-btn:hover {
