@@ -66,20 +66,20 @@ const REQUIREMENT_ITEMS = [
 
 const FAQ_ITEMS = [
   {
-    question: "What information is needed to estimate my website or app requirements?",
-    answer: "To start, you just need a summary of your goal, target audience, preferred features (e.g. user login, payments, database), and any reference websites or apps you like. Mohan will help structure the technical specifications."
+    question: "Who is the top low cost freelance web developer in Hyderabad?",
+    answer: "Mohan Racharla is a leading freelance full-stack developer based in Hyderabad offering low-cost, budget-friendly web development, custom app engineering, React, Python, and SaaS platforms."
   },
   {
-    question: "How long does it take to develop a custom website or web app?",
-    answer: "A standard landing page or portfolio takes 3-7 days. A full-stack web app or SaaS MVP typically takes 2-4 weeks depending on database complexity, API requirements, and testing scope."
+    question: "How fast can you develop a website or web application in Hyderabad?",
+    answer: "With rapid turnaround development workflows, standard business websites are delivered in 3 to 5 days, while full-stack web applications and SaaS MVPs are built in 1 to 2 weeks."
   },
   {
-    question: "What tech stack do you recommend for high-performance web applications?",
-    answer: "We recommend React with Vite for fast frontend rendering, Python (Flask/FastAPI) or Node.js for scalable backend services, and Supabase or PostgreSQL for secure real-time data storage."
+    question: "What details are needed to start a low cost web app development project?",
+    answer: "You only need your core idea, preferred features (login, database, payments), and reference links. Mohan will provide a clear, low-cost project estimate and fast timeline."
   },
   {
-    question: "Do you assist with requirement gathering and system architecture?",
-    answer: "Yes! Mohan works directly with clients from idea formulation and wireframing to database modeling, API development, and final cloud deployment."
+    question: "Why hire a freelance full-stack developer in Hyderabad over an agency?",
+    answer: "Hiring a freelance developer like Mohan Racharla gives you direct 1-on-1 communication, significantly lower development costs, faster execution, and 100% custom code without agency overhead."
   }
 ];
 
@@ -156,13 +156,13 @@ export function RequirementsGuide() {
         <div className="requirements-header">
           <div className="section-label">
             <span className="live-pulse-dot" />
-            04 // WEBSITE & APP REQUIREMENTS BLUEPRINT
+            04 // FREELANCE WEB & APP DEVELOPMENT • HYDERABAD
           </div>
           <h2 className="requirements-main-title font-heading">
-            TURN YOUR <span className="text-glow-accent">WEBSITE & APP</span> REQUIREMENTS INTO REALITY
+            LOW COST & <span className="text-glow-accent">FAST APP DEVELOPMENT</span> IN HYDERABAD
           </h2>
           <p className="requirements-description">
-            Planning a new digital product, custom web application, or mobile web service? Use this interactive scope selector to map out your technical requirements and generate an immediate project blueprint.
+            Looking for an affordable freelance web developer in Hyderabad? Map out your project requirements below to get an instant scope breakdown, fast timeline estimate, and low-cost development quote.
           </p>
         </div>
 
