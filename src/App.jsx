@@ -7,6 +7,7 @@ import { Hero } from './components/Hero/Hero';
 import { Intro } from './components/Intro/Intro';
 import { Projects } from './components/Projects/Projects';
 import { Capabilities } from './components/Capabilities/Capabilities';
+import { RequirementsGuide } from './components/RequirementsGuide/RequirementsGuide';
 import { TechStack } from './components/TechStack/TechStack';
 import { Experience } from './components/Experience/Experience';
 import { About } from './components/About/About';
@@ -43,6 +44,7 @@ export default function App() {
           <Intro />
           <Projects />
           <Capabilities />
+          <RequirementsGuide />
           <TechStack />
           <Experience />
           <About />

@@ -89,8 +89,9 @@ export function Hero() {
         </div>
 
         <div className="hero-main-content-layout">
-          {/* Left: Giant Kinetic Typography */}
-          <div className="hero-headline-container">
+          {/* Left: Giant Kinetic Typography with SEO H1 Heading */}
+          <h1 className="hero-headline-container" aria-label="Mohan Racharla — Full-Stack Developer for Website & App Development Requirements. I Build Digital Products.">
+            <span className="sr-only">Mohan Racharla — Custom Website & App Development Requirements & Full-Stack Engineering</span>
             <div className="hero-headline-line">
               <span 
                 ref={line1Ref} 
@@ -123,7 +124,7 @@ export function Hero() {
                 PRODUCTS.
               </span>
             </div>
-          </div>
+          </h1>
 
           {/* Right: Scroll-Driven Masked Developer Portrait */}
           <div 

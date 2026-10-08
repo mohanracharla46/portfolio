@@ -1,0 +1,382 @@
+/* ==========================================================================
+   REQUIREMENTS GUIDE SECTION CSS (SEO & Scope Estimator)
+   ========================================================================== */
+
+.requirements-section {
+  position: relative;
+  padding: 120px 0;
+  background-color: var(--bg-dark, #0a0a0a);
+  color: var(--text-main, #e2e8f0);
+  overflow: hidden;
+}
+
+.req-ambient-overlay {
+  position: absolute;
+  top: 15%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(184, 255, 60, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.requirements-header {
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+
+.requirements-main-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 16px 0 20px 0;
+}
+
+.requirements-description {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+/* Selector Main Container Box */
+.requirements-selector-box {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 32px;
+  margin-bottom: 90px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 992px) {
+  .requirements-selector-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+.selector-left-col {
+  background: rgba(18, 18, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(12px);
+}
+
+.selector-box-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.selector-box-title h3 {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+/* Checklist Grid */
+.req-checklist-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.req-grid-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.req-grid-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(184, 255, 60, 0.3);
+  transform: translateY(-2px);
+}
+
+.req-grid-card.is-selected {
+  background: rgba(184, 255, 60, 0.04);
+  border-color: var(--accent-color, #B8FF3C);
+  box-shadow: 0 4px 20px rgba(184, 255, 60, 0.08);
+}
+
+.req-card-checkbox {
+  padding-top: 2px;
+}
+
+.checkbox-custom {
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0a0a0a;
+  transition: all 0.2s ease;
+}
+
+.checkbox-custom.checked {
+  background: var(--accent-color, #B8FF3C);
+  border-color: var(--accent-color, #B8FF3C);
+}
+
+.req-card-details {
+  flex: 1;
+}
+
+.req-category-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-color, #B8FF3C);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.req-card-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.req-card-sub {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.req-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-pill {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  color: #cbd5e1;
+}
+
+/* Right Summary Panel */
+.selector-summary-panel {
+  background: linear-gradient(145deg, rgba(24, 24, 30, 0.9), rgba(14, 14, 18, 0.95));
+  border: 1px solid rgba(184, 255, 60, 0.25);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.blueprint-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(184, 255, 60, 0.1);
+  border: 1px solid rgba(184, 255, 60, 0.3);
+  border-radius: 100px;
+  color: var(--accent-color, #B8FF3C);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+  align-self: flex-start;
+}
+
+.blueprint-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  margin-bottom: 24px;
+}
+
+.b-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.b-label {
+  font-size: 0.68rem;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.b-value {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.blueprint-features-list {
+  margin-bottom: 28px;
+}
+
+.b-list-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.blueprint-features-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blueprint-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+}
+
+.blueprint-submit-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: var(--accent-color, #B8FF3C);
+  color: #0a0a0a;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(184, 255, 60, 0.2);
+}
+
+.blueprint-submit-btn:hover {
+  background: #c7ff5c;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(184, 255, 60, 0.35);
+}
+
+.blueprint-guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 14px;
+  text-align: center;
+}
+
+/* FAQ Container */
+.requirements-faq-container {
+  background: rgba(18, 18, 22, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.faq-title {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.faq-card.open {
+  border-color: rgba(184, 255, 60, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-arrow {
+  color: var(--accent-color, #B8FF3C);
+  transition: transform 0.3s ease;
+}
+
+.faq-arrow.rotated {
+  transform: rotate(90deg);
+}
+
+.faq-answer-body {
+  padding: 0 24px 20px 24px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 4px;
+  padding-top: 16px;
+}

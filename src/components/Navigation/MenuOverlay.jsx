@@ -9,10 +9,11 @@ const MENU_ITEMS = [
   { number: '01', label: 'HOME', targetId: 'hero' },
   { number: '02', label: 'WORK', targetId: 'work' },
   { number: '03', label: 'CAPABILITIES', targetId: 'capabilities' },
-  { number: '04', label: 'TOOLS', targetId: 'tools' },
-  { number: '05', label: 'EXPERIENCE', targetId: 'experience' },
-  { number: '06', label: 'ABOUT', targetId: 'about' },
-  { number: '07', label: 'CONTACT', targetId: 'contact' },
+  { number: '04', label: 'REQUIREMENTS', targetId: 'requirements' },
+  { number: '05', label: 'TOOLS', targetId: 'tools' },
+  { number: '06', label: 'EXPERIENCE', targetId: 'experience' },
+  { number: '07', label: 'ABOUT', targetId: 'about' },
+  { number: '08', label: 'CONTACT', targetId: 'contact' },
 ];
 
 export function MenuOverlay({ isOpen, onClose }) {
