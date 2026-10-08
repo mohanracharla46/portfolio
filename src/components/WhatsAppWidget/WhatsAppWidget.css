@@ -1,0 +1,235 @@
+/* ==========================================================================
+   FLOATING WHATSAPP WIDGET CSS
+   ========================================================================== */
+
+.whatsapp-floating-root {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-floating-root {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+/* Floating Trigger Button */
+.whatsapp-trigger-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.whatsapp-trigger-btn:hover {
+  transform: scale(1.1) rotate(5deg);
+  background: #20ba5a;
+  box-shadow: 0 14px 35px rgba(37, 211, 102, 0.55);
+}
+
+.whatsapp-trigger-btn.active {
+  transform: rotate(90deg);
+  background: #121216;
+  color: var(--accent-color, #B8FF3C);
+  border: 1px solid rgba(184, 255, 60, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Pulsing Outer Ring */
+.wa-btn-pulse-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: waPulseRing 2s infinite cubic-bezier(0.45, 0, 0.55, 1);
+  pointer-events: none;
+}
+
+@keyframes waPulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+/* Popup Contact Card */
+.whatsapp-card-popup {
+  width: 320px;
+  background: #121216;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  margin-bottom: 16px;
+  overflow: hidden;
+  animation: waCardSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+}
+
+@keyframes waCardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.wa-card-header {
+  background: linear-gradient(135deg, #075E54 0%, #128C7E 100%);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+}
+
+.wa-avatar-box {
+  position: relative;
+}
+
+.wa-avatar-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.wa-online-pulse {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: #25D366;
+  border: 2px solid #075E54;
+  border-radius: 50%;
+}
+
+.wa-header-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-name {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.wa-status {
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+.wa-close-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  opacity: 0.8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.wa-close-btn:hover {
+  opacity: 1;
+}
+
+/* Card Body & Chat Bubble */
+.wa-card-body {
+  padding: 20px 16px;
+  background: rgba(18, 18, 22, 0.95);
+  background-image: radial-gradient(rgba(37, 211, 102, 0.05) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+.wa-chat-bubble {
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  border-radius: 12px 12px 12px 2px;
+  padding: 12px 14px;
+  color: #e2e8f0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  position: relative;
+}
+
+.wa-time {
+  display: block;
+  font-size: 0.68rem;
+  color: #94a3b8;
+  text-align: right;
+  margin-top: 6px;
+}
+
+/* Card Footer CTA */
+.wa-card-footer {
+  padding: 12px 16px 16px 16px;
+  background: rgba(14, 14, 18, 0.98);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wa-chat-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #25D366;
+  color: #ffffff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.wa-chat-submit-btn:hover {
+  background: #20ba5a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}

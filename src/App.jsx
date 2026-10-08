@@ -14,6 +14,7 @@ import { About } from './components/About/About';
 import { CurrentlyBuilding } from './components/CurrentlyBuilding/CurrentlyBuilding';
 import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
+import { WhatsAppWidget } from './components/WhatsAppWidget/WhatsAppWidget';
 import { useLenis } from './hooks/useLenis';
 import './index.css';
 
@@ -51,6 +52,9 @@ export default function App() {
           <CurrentlyBuilding />
           <Contact />
         </main>
+
+        {/* Floating WhatsApp Contact Widget */}
+        <WhatsAppWidget />
 
         {/* Footer */}
         <Footer />
