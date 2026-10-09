@@ -46,14 +46,13 @@ export function Hero() {
         '-=0.6'
       );
 
-      // 2. SCROLL-DRIVEN 2-STAGE ANIMATION (Slow, controlled scroll transition)
-      // Extended scroll distance (+=200%) & scrub inertia (1.5s) for smooth pacing
+      // 2. SCROLL-DRIVEN CENTER & SCALE ANIMATION (Image glides to center & expands immediately on scroll)
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: heroRef.current,
           start: 'top top',
-          end: '+=200%', // Extended scroll distance so text stays visible longer & fades slowly
-          scrub: 1.4,    // Silky smooth scroll inertia
+          end: '+=100%', // 100vh scroll pinning length for immediate response
+          scrub: 1,      // Responsive 1s interactive scrub
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true
@@ -61,29 +60,29 @@ export function Hero() {
       });
 
       scrollTl
-        // STAGE 1 (Scroll 0.0 -> 0.45): Gradual, slow text fade out
+        // 1. Text & Subtitle fade out smoothly at the start of scroll (0.0 -> 0.4)
         .to([line1Ref.current, line2Ref.current, line3Ref.current], { 
           xPercent: -20, 
-          y: -25, 
+          y: -20, 
           opacity: 0, 
-          stagger: 0.08, 
+          stagger: 0.05, 
           ease: 'power1.out', 
-          duration: 0.45 
+          duration: 0.4 
         }, 0)
         .to(subtitleRef.current, { 
           opacity: 0, 
           y: 20, 
           ease: 'power1.out', 
-          duration: 0.45 
+          duration: 0.4 
         }, 0)
         .to(scrollIndicatorRef.current, { 
           opacity: 0, 
           scale: 0.6, 
           ease: 'power1.out', 
-          duration: 0.45 
+          duration: 0.4 
         }, 0)
 
-        // STAGE 2 (Scroll 0.45 -> 1.0): AFTER text animation completes, Image glides to center & expands big
+        // 2. Image Effect: Immediately glides to horizontal/vertical center & expands BIG (0.1 -> 1.0)
         .to(imageWrapperRef.current, {
           x: () => {
             if (!imageWrapperRef.current || !heroRef.current) return 0;
@@ -111,14 +110,14 @@ export function Hero() {
           borderColor: 'rgba(184, 255, 60, 0.6)',
           boxShadow: '0 40px 120px rgba(184, 255, 60, 0.45), 0 0 60px rgba(184, 255, 60, 0.25)',
           ease: 'power2.inOut',
-          duration: 0.55
-        }, 0.45)
+          duration: 0.9
+        }, 0.1)
         .to(imageRef.current, {
           scale: 1.25,
           y: -10,
           ease: 'power2.inOut',
-          duration: 0.55
-        }, 0.45);
+          duration: 0.9
+        }, 0.1);
 
     }, heroRef);
 
