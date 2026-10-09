@@ -26,23 +26,23 @@ export function Hero() {
 
     const ctx = gsap.context(() => {
       // 1. Initial entrance reveal on page load
-      const entranceTl = gsap.timeline({ delay: 0.1 });
+      const entranceTl = gsap.timeline({ delay: 0.05 });
 
       entranceTl.fromTo(
         [line1Ref.current, line2Ref.current, line3Ref.current],
-        { yPercent: 100, opacity: 0 },
-        { yPercent: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease: 'power4.out' }
+        { y: 45, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out' }
       )
       .fromTo(
         imageWrapperRef.current,
-        { scale: 0.85, opacity: 0, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
-        { scale: 1, opacity: 1, clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: 1, ease: 'power3.out' },
-        '-=0.6'
+        { scale: 0.9, opacity: 0, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
+        { scale: 1, opacity: 1, clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: 0.9, ease: 'power3.out' },
+        '-=0.5'
       )
       .fromTo(
         [subtitleRef.current, scrollIndicatorRef.current],
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out' },
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out' },
         '-=0.4'
       );
 
