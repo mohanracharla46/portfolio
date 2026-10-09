@@ -8,12 +8,14 @@ import { Intro } from './components/Intro/Intro';
 import { Projects } from './components/Projects/Projects';
 import { SmallProjects } from './components/SmallProjects/SmallProjects';
 import { Capabilities } from './components/Capabilities/Capabilities';
+import { RequirementsGuide } from './components/RequirementsGuide/RequirementsGuide';
 import { TechStack } from './components/TechStack/TechStack';
 import { Experience } from './components/Experience/Experience';
 import { About } from './components/About/About';
 import { CurrentlyBuilding } from './components/CurrentlyBuilding/CurrentlyBuilding';
 import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
+import { WhatsAppWidget } from './components/WhatsAppWidget/WhatsAppWidget';
 import { useLenis } from './hooks/useLenis';
 import './index.css';
 
@@ -45,12 +47,16 @@ export default function App() {
           <Projects />
           <SmallProjects />
           <Capabilities />
+          <RequirementsGuide />
           <TechStack />
           <Experience />
           <About />
           <CurrentlyBuilding />
           <Contact />
         </main>
+
+        {/* Floating WhatsApp Contact Widget */}
+        <WhatsAppWidget />
 
         {/* Footer */}
         <Footer />

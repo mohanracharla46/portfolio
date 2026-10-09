@@ -1,31 +1,31 @@
 import React, { useState } from 'react';
-import { DollarSign, Users, Award, TrendingUp, Plus } from 'lucide-react';
+import { DollarSign, Users, Award, TrendingUp, Plus, Copy, Check } from 'lucide-react';
 
 export function ReferItUpShowcase() {
   const [referrals, setReferrals] = useState(1482);
   const [earnings, setEarnings] = useState(12450);
-  const [copied, setCopied] = useState(false);
+  const [converted, setConverted] = useState(false);
 
   const handleSimulateReferral = () => {
-    setReferrals(prev => prev + 1);
-    setEarnings(prev => prev + 25);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1200);
+    setReferrals((prev) => prev + 1);
+    setEarnings((prev) => prev + 25);
+    setConverted(true);
+    setTimeout(() => setConverted(false), 1400);
   };
 
   return (
     <div className="project-interactive-card referitup-card">
       <div className="card-top-bar">
         <div className="card-window-dots">
-          <span className="dot dot-red"></span>
-          <span className="dot dot-yellow"></span>
-          <span className="dot dot-green"></span>
+          <span className="dot dot-red" />
+          <span className="dot dot-yellow" />
+          <span className="dot dot-green" />
         </div>
         <div className="card-title-badge">
           <span>dashboard.referitup.com</span>
         </div>
         <div className="live-pulse">
-          <span className="pulse-dot"></span> REALTIME PAYOUT ENGINE
+          <span className="pulse-dot" /> <span className="pulse-label">REALTIME PAYOUT ENGINE</span>
         </div>
       </div>
 
@@ -58,10 +58,12 @@ export function ReferItUpShowcase() {
 
         <div className="referral-action-bar">
           <div className="referral-link-box">
+            <Copy size={13} className="link-icon" />
             <span className="link-text">https://referitup.com/r/mohan-dev</span>
           </div>
-          <button className="simulate-ref-btn" onClick={handleSimulateReferral}>
-            <Plus size={14} /> {copied ? 'REFERRAL CONVERTED +$25!' : 'SIMULATE REFERRAL CONVERSION'}
+          <button className={`simulate-ref-btn ${converted ? 'active' : ''}`} onClick={handleSimulateReferral}>
+            {converted ? <Check size={14} /> : <Plus size={14} />}
+            <span>{converted ? 'CONVERTED +$25!' : 'SIMULATE CONVERSION'}</span>
           </button>
         </div>
 
@@ -82,3 +84,4 @@ export function ReferItUpShowcase() {
     </div>
   );
 }
+

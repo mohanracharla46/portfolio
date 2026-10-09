@@ -1,5 +1,5 @@
 .capabilities-section {
-  padding: 11rem 0 9rem;
+  padding: 10rem 0 9rem;
   background-color: var(--bg-secondary);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
@@ -7,128 +7,423 @@
   overflow: hidden;
 }
 
+/* Sci-Fi Ambient Backlight Glow Orbs */
+.cap-ambient-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(120px);
+  opacity: 0.12;
+  z-index: 1;
+}
+
+.cap-ambient-glow.glow-1 {
+  top: 10%;
+  left: -100px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+}
+
+.cap-ambient-glow.glow-2 {
+  bottom: 5%;
+  right: -100px;
+  background: radial-gradient(circle, #4E9FFF 0%, transparent 70%);
+}
+
+/* Background Kinetic Ticker */
 .capabilities-ticker-track {
   position: absolute;
-  top: 15%;
+  top: 12%;
   left: 0;
   width: 100%;
   pointer-events: none;
   user-select: none;
-  opacity: 0.04;
+  opacity: 0.035;
   overflow: hidden;
   white-space: nowrap;
+  z-index: 1;
 }
 
 .capabilities-ticker-text {
   display: inline-block;
   font-family: var(--font-heading);
   font-size: clamp(6rem, 14vw, 14rem);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.04em;
   color: var(--text-primary);
   will-change: transform;
 }
 
+/* Header Styling */
 .capabilities-header {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.header-meta-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px var(--accent);
+  animation: livePulse 2s infinite ease-in-out;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.capabilities-title {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
+
+.text-glow-accent {
+  color: var(--accent);
+  text-shadow: 0 0 25px rgba(184, 255, 60, 0.4);
 }
 
 .capabilities-subcopy {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
   color: var(--text-secondary);
-  max-width: 450px;
+  max-width: 440px;
   font-weight: 300;
+  line-height: 1.6;
 }
 
-.capabilities-typography-cloud {
+/* High-Tech Bento Grid Layout */
+.capabilities-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cap-cyber-card {
+  position: relative;
+  background: rgba(18, 18, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  user-select: none;
+  justify-content: space-between;
+  min-height: 320px;
+  transition: all 0.4s var(--ease-out-expo);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.capability-row {
-  position: relative;
+/* Featured Bento Card (Web Applications - Spans 2 Columns) */
+.cap-cyber-card.bento-featured {
+  grid-column: span 2;
+  background: linear-gradient(135deg, rgba(22, 26, 32, 0.8) 0%, rgba(14, 16, 20, 0.65) 100%);
+  border-color: rgba(184, 255, 60, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(184, 255, 60, 0.08);
+}
+
+.featured-tag {
+  background: rgba(184, 255, 60, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(184, 255, 60, 0.3);
+  padding: 0.12rem 0.5rem;
+  border-radius: 100px;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-left: 0.35rem;
+}
+
+.featured-metrics-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1.35rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+}
+
+.f-metric {
+  display: flex;
+  flex-direction: column;
+}
+
+.f-val {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.f-lbl {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.cap-cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--card-accent, var(--accent)), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cap-cyber-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6), 0 0 30px -5px var(--card-accent, rgba(184, 255, 60, 0.2));
+}
+
+.cap-cyber-card:hover::before {
+  opacity: 1;
+}
+
+/* Sci-Fi HUD Corner Brackets */
+.hud-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+.cap-cyber-card:hover .hud-corner {
+  border-color: var(--card-accent, var(--accent));
+}
+
+.corner-tl { top: 12px; left: 12px; border-top: 2px solid; border-left: 2px solid; }
+.corner-tr { top: 12px; right: 12px; border-top: 2px solid; border-right: 2px solid; }
+.corner-bl { bottom: 12px; left: 12px; border-bottom: 2px solid; border-left: 2px solid; }
+.corner-br { bottom: 12px; right: 12px; border-bottom: 2px solid; border-right: 2px solid; }
+
+/* Card Top Meta */
+.cap-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid rgba(244, 244, 240, 0.06);
-  transition: border-color 0.3s ease;
-  perspective: 1000px;
-  will-change: transform, opacity;
+  margin-bottom: 1.5rem;
 }
 
-.capability-row:hover {
-  border-color: var(--accent-border);
-}
-
-.capability-left-meta {
+.cap-sys-badge {
   display: flex;
   align-items: center;
-  gap: 2rem;
-}
-
-.capability-index {
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.75rem;
+  border-radius: 100px;
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--accent);
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
+  color: var(--card-accent, var(--accent));
 }
 
-.capability-word {
+.cap-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 6.5vw, 6.5rem);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.status-icon {
+  color: var(--card-accent, var(--accent));
+}
+
+/* Card Body */
+.cap-card-body {
+  margin-bottom: 1.75rem;
+}
+
+.cap-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
-  line-height: 0.9;
-  transition: color 0.4s ease, transform 0.4s var(--ease-out-expo), text-shadow 0.4s ease;
-  cursor: pointer;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
 }
 
-.capability-row:hover .capability-word {
-  color: var(--accent);
-  transform: translateX(25px);
-  text-shadow: 0 0 35px rgba(184, 255, 60, 0.4);
+.title-arrow {
+  color: var(--text-muted);
+  transition: transform 0.3s var(--ease-out-expo), color 0.3s ease;
 }
 
-.capability-desc-tooltip {
+.cap-cyber-card:hover .cap-card-title {
+  color: var(--card-accent, var(--accent));
+}
+
+.cap-cyber-card:hover .title-arrow {
+  transform: translate(3px, -3px);
+  color: var(--card-accent, var(--accent));
+}
+
+.cap-card-desc {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--text-secondary);
-  max-width: 400px;
-  opacity: 0;
-  transform: translateX(-15px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-  pointer-events: none;
+  line-height: 1.6;
 }
 
-.capability-row:hover .capability-desc-tooltip {
-  opacity: 1;
-  transform: translateX(0);
+/* Tech Tag Pills */
+.cap-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-@media (max-width: 992px) {
+.cap-tag-pill {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.cap-cyber-card:hover .cap-tag-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
   .capabilities-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
   }
 
-  .capability-desc-tooltip {
-    display: none;
+  .capabilities-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .cap-cyber-card.bento-featured {
+    grid-column: span 2;
   }
 }
 
 @media (max-width: 768px) {
   .capabilities-section {
-    padding: 6rem 0 5rem;
+    padding: 5rem 0 4rem;
+  }
+
+  .capabilities-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .capabilities-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+  }
+
+  .capabilities-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .cap-cyber-card {
+    padding: 1.5rem 1.25rem;
+    min-height: auto;
+    border-radius: 14px;
+  }
+
+  .cap-cyber-card.bento-featured {
+    grid-column: span 1;
+  }
+
+  .featured-metrics-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .f-val {
+    font-size: 0.95rem;
+  }
+
+  .f-lbl {
+    font-size: 0.62rem;
+  }
+
+  .cap-card-title {
+    font-size: 1.4rem;
+  }
+
+  .capabilities-ticker-track {
+    opacity: 0.02;
   }
 }
+
+@media (max-width: 480px) {
+  .capabilities-section {
+    padding: 4rem 0 3.5rem;
+  }
+
+  .cap-cyber-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .cap-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .featured-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .cap-tech-tags {
+    gap: 0.35rem;
+  }
+
+  .cap-tag-pill {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
