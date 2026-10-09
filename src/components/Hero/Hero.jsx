@@ -25,35 +25,35 @@ export function Hero() {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // 1. Initial entrance reveal on page load
-      const entranceTl = gsap.timeline({ delay: 0.05 });
+      // 1. Initial entrance reveal on page load (Smooth, gradual text reveal)
+      const entranceTl = gsap.timeline({ delay: 0.1 });
 
       entranceTl.fromTo(
         [line1Ref.current, line2Ref.current, line3Ref.current],
         { y: 45, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out' }
+        { y: 0, opacity: 1, duration: 1.4, stagger: 0.18, ease: 'power3.out' }
       )
       .fromTo(
         imageWrapperRef.current,
         { scale: 0.9, opacity: 0, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
-        { scale: 1, opacity: 1, clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: 0.9, ease: 'power3.out' },
-        '-=0.5'
+        { scale: 1, opacity: 1, duration: 1.3, ease: 'power3.out' },
+        '-=0.8'
       )
       .fromTo(
         [subtitleRef.current, scrollIndicatorRef.current],
         { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out' },
-        '-=0.4'
+        { opacity: 1, y: 0, duration: 0.9, stagger: 0.15, ease: 'power3.out' },
+        '-=0.6'
       );
 
-      // 2. SCROLL-DRIVEN 2-STAGE ANIMATION
-      // Stage 1: Content animates out -> Stage 2: Image expands & comes to center
+      // 2. SCROLL-DRIVEN 2-STAGE ANIMATION (Slow, controlled scroll transition)
+      // Extended scroll distance (+=200%) & scrub inertia (1.5s) for smooth pacing
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: heroRef.current,
           start: 'top top',
-          end: '+=120%', // Pinned scroll duration for complete motion story
-          scrub: 1,      // Smooth interactive scroll response
+          end: '+=200%', // Extended scroll distance so text stays visible longer & fades slowly
+          scrub: 1.4,    // Silky smooth scroll inertia
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true
@@ -61,33 +61,33 @@ export function Hero() {
       });
 
       scrollTl
-        // STAGE 1 (Scroll 0.0 -> 0.35): Content animates out (text, description, scroll indicator fade away)
+        // STAGE 1 (Scroll 0.0 -> 0.45): Gradual, slow text fade out
         .to([line1Ref.current, line2Ref.current, line3Ref.current], { 
-          xPercent: -25, 
-          y: -30, 
+          xPercent: -20, 
+          y: -25, 
           opacity: 0, 
-          stagger: 0.04, 
-          ease: 'power1.in', 
-          duration: 0.35 
+          stagger: 0.08, 
+          ease: 'power1.out', 
+          duration: 0.45 
         }, 0)
         .to(subtitleRef.current, { 
           opacity: 0, 
-          y: 25, 
-          ease: 'power1.in', 
-          duration: 0.35 
+          y: 20, 
+          ease: 'power1.out', 
+          duration: 0.45 
         }, 0)
         .to(scrollIndicatorRef.current, { 
           opacity: 0, 
           scale: 0.6, 
-          ease: 'power1.in', 
-          duration: 0.35 
+          ease: 'power1.out', 
+          duration: 0.45 
         }, 0)
 
-        // STAGE 2 (Scroll 0.35 -> 1.0): AFTER content animation, Image effect happens (glides to center & expands big)
+        // STAGE 2 (Scroll 0.45 -> 1.0): AFTER text animation completes, Image glides to center & expands big
         .to(imageWrapperRef.current, {
           x: () => {
             if (!imageWrapperRef.current || !heroRef.current) return 0;
-            if (window.innerWidth <= 992) return 0; // Single column on tablet/mobile is already centered
+            if (window.innerWidth <= 992) return 0; // Single column layout on tablet/mobile is already centered
             const container = heroRef.current.querySelector('.hero-container');
             if (!container) return 0;
             
@@ -111,14 +111,14 @@ export function Hero() {
           borderColor: 'rgba(184, 255, 60, 0.6)',
           boxShadow: '0 40px 120px rgba(184, 255, 60, 0.45), 0 0 60px rgba(184, 255, 60, 0.25)',
           ease: 'power2.inOut',
-          duration: 0.65
-        }, 0.35)
+          duration: 0.55
+        }, 0.45)
         .to(imageRef.current, {
           scale: 1.25,
           y: -10,
           ease: 'power2.inOut',
-          duration: 0.65
-        }, 0.35);
+          duration: 0.55
+        }, 0.45);
 
     }, heroRef);
 
