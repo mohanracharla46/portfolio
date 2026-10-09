@@ -147,3 +147,33 @@
     padding: 6rem 0 5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .techstack-section {
+    padding: 4.5rem 0 3.5rem;
+  }
+
+  .techstack-top-header {
+    margin-bottom: 3rem;
+  }
+
+  .techstack-words-container {
+    gap: 0.6rem 0.75rem;
+  }
+
+  .tech-word-btn {
+    padding: 0.45rem 0.85rem;
+  }
+
+  .tech-word-text {
+    font-size: 1.1rem;
+  }
+
+  .spotlight-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .spotlight-detail-text {
+    font-size: 0.95rem;
+  }
+}

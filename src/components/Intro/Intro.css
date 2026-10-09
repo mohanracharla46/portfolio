@@ -64,3 +64,21 @@
     padding: 6rem 0 5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .intro-section {
+    padding: 4.5rem 0 3.5rem;
+  }
+
+  .intro-statement {
+    font-size: clamp(2.1rem, 7.5vw, 3.8rem);
+  }
+
+  .intro-paragraph-box {
+    padding-left: 1.25rem;
+  }
+
+  .intro-paragraph {
+    font-size: 1rem;
+  }
+}

@@ -19,6 +19,23 @@
   }
 }
 
+@media (max-width: 480px) {
+  .whatsapp-floating-root {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .whatsapp-card-popup {
+    width: calc(100vw - 32px);
+    max-width: 320px;
+  }
+
+  .whatsapp-trigger-btn {
+    width: 52px;
+    height: 52px;
+  }
+}
+
 /* Floating Trigger Button */
 .whatsapp-trigger-btn {
   width: 58px;

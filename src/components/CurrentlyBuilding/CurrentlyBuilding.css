@@ -84,6 +84,7 @@
 
 .building-tech-stack {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.6rem;
 }
 
@@ -158,5 +159,32 @@
 @media (max-width: 768px) {
   .building-card {
     padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .currently-building-section {
+    padding: 4.5rem 0;
+  }
+
+  .building-card {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+
+  .building-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .building-desc {
+    font-size: 0.92rem;
+  }
+
+  .building-progress-col {
+    padding: 1.25rem 1rem;
   }
 }

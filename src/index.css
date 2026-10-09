@@ -30,6 +30,11 @@
   padding: 0;
 }
 
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -196,6 +201,12 @@ button:focus-visible, a:focus-visible {
 @media (max-width: 768px) {
   .container {
     padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
   }
 }
 

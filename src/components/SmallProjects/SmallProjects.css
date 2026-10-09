@@ -330,13 +330,15 @@
   .horizontal-track-wrapper {
     overflow-x: auto;
     padding-left: 1.25rem;
+    -webkit-overflow-scrolling: touch;
   }
   .horizontal-scroll-track {
     padding-right: 1.25rem;
+    gap: 1.25rem;
   }
   .small-project-card {
-    width: 330px;
-    min-width: 330px;
+    width: clamp(280px, 80vw, 330px);
+    min-width: auto;
     height: 480px;
   }
   .card-hero-image-frame {
@@ -345,5 +347,28 @@
   .scroll-navigation-hint {
     width: 100%;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .horizontal-scroll-pin {
+    padding: 2.5rem 0;
+  }
+  .horizontal-track-wrapper {
+    padding-left: 1rem;
+  }
+  .horizontal-scroll-track {
+    padding-right: 1rem;
+    gap: 1rem;
+  }
+  .small-project-card {
+    width: clamp(250px, 84vw, 300px);
+    height: 460px;
+  }
+  .small-card-body {
+    padding: 1.25rem 1rem;
+  }
+  .small-card-title {
+    font-size: 1.2rem;
   }
 }

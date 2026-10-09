@@ -227,9 +227,50 @@
     padding: 6rem 0 3rem;
   }
   
+  .hero-word {
+    font-size: clamp(2.5rem, 11vw, 5rem);
+  }
+
   .hero-footer-wrapper {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 5.5rem 0 2.5rem;
+  }
+
+  .hero-meta {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .hero-word {
+    font-size: clamp(2.2rem, 11.5vw, 3.8rem);
+  }
+
+  .text-outlined {
+    -webkit-text-stroke: 1px rgba(244, 244, 240, 0.4);
+  }
+
+  .hero-portrait-frame {
+    max-width: 290px;
+    border-radius: 14px;
+  }
+
+  .portrait-badge {
+    bottom: 0.85rem;
+    left: 0.85rem;
+    font-size: 0.65rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
   }
 }
