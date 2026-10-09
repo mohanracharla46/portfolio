@@ -46,31 +46,61 @@ export function Hero() {
         '-=0.4'
       );
 
-      // 2. SCROLL-DRIVEN ANIMATION (Tied 100% to User Scroll Position)
+      // 2. SCROLL-DRIVEN CENTER & SCALE ANIMATION (Image grows & moves to center on scroll)
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: heroRef.current,
           start: 'top top',
-          end: 'bottom top',
-          scrub: 0.8, // Smooth scrub locked to scroll bar position
-          pin: false
+          end: '+=100%', // Pinned scroll duration
+          scrub: 1,      // Smooth interactive scroll response
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
         }
       });
 
       scrollTl
-        .to(line1Ref.current, { xPercent: -25, opacity: 0.3, ease: 'none' }, 0)
-        .to(line2Ref.current, { xPercent: 20, opacity: 0.2, ease: 'none' }, 0)
-        .to(line3Ref.current, { xPercent: -15, opacity: 0.4, ease: 'none' }, 0)
+        // Fade out and recede kinetic headline & meta
+        .to(line1Ref.current, { xPercent: -35, opacity: 0, scale: 0.85, ease: 'power1.in' }, 0)
+        .to(line2Ref.current, { xPercent: -35, opacity: 0, scale: 0.85, ease: 'power1.in' }, 0)
+        .to(line3Ref.current, { xPercent: -35, opacity: 0, scale: 0.85, ease: 'power1.in' }, 0)
+        .to(subtitleRef.current, { opacity: 0, y: 30, ease: 'power1.in' }, 0)
+        .to(scrollIndicatorRef.current, { opacity: 0, scale: 0.6, ease: 'power1.in' }, 0)
+        // Expand and Translate Portrait Frame directly into Horizontal Center
         .to(imageWrapperRef.current, {
-          scale: 1.15,
-          y: 80,
-          rotate: -2,
-          boxShadow: '0 30px 80px rgba(184, 255, 60, 0.25)',
-          ease: 'none'
+          x: () => {
+            if (!imageWrapperRef.current || !heroRef.current) return 0;
+            if (window.innerWidth <= 992) return 0; // Already single column layout on mobile/tablet
+            const container = heroRef.current.querySelector('.hero-container');
+            if (!container) return 0;
+            
+            const containerRect = container.getBoundingClientRect();
+            const imageRect = imageWrapperRef.current.getBoundingClientRect();
+            
+            const currentX = gsap.getProperty(imageWrapperRef.current, 'x') || 0;
+            const rawImageCenter = (imageRect.left - currentX) + imageRect.width / 2;
+            const containerCenter = containerRect.left + containerRect.width / 2;
+            
+            return containerCenter - rawImageCenter;
+          },
+          scale: () => {
+            if (window.innerWidth <= 480) return 1.22;
+            if (window.innerWidth <= 768) return 1.32;
+            if (window.innerHeight <= 700) return 1.4;
+            return 1.65;
+          },
+          y: () => (window.innerWidth <= 992 ? 0 : 15),
+          rotate: 0,
+          borderColor: 'rgba(184, 255, 60, 0.55)',
+          boxShadow: '0 40px 110px rgba(184, 255, 60, 0.38), 0 0 50px rgba(184, 255, 60, 0.25)',
+          ease: 'power2.inOut'
         }, 0)
-        .to(imageRef.current, { scale: 1.25, y: -40, ease: 'none' }, 0)
-        .to(subtitleRef.current, { opacity: 0, y: -30, ease: 'none' }, 0)
-        .to(scrollIndicatorRef.current, { opacity: 0, scale: 0.7, ease: 'none' }, 0);
+        // Parallax inner image zoom for dramatic depth
+        .to(imageRef.current, {
+          scale: 1.2,
+          y: -10,
+          ease: 'power2.inOut'
+        }, 0);
 
     }, heroRef);
 
