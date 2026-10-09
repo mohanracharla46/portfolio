@@ -25,25 +25,25 @@ export function Hero() {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // 1. Initial entrance reveal on page load (Smooth, gradual text reveal)
+      // 1. Initial entrance reveal on page load (Smooth, gradual text & portrait reveal)
       const entranceTl = gsap.timeline({ delay: 0.1 });
 
       entranceTl.fromTo(
         [line1Ref.current, line2Ref.current, line3Ref.current],
         { y: 45, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.4, stagger: 0.18, ease: 'power3.out' }
+        { y: 0, opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out' }
       )
       .fromTo(
         imageWrapperRef.current,
-        { scale: 0.9, opacity: 0, clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' },
-        { scale: 1, opacity: 1, duration: 1.3, ease: 'power3.out' },
-        '-=0.8'
+        { scale: 0.92, opacity: 0, y: 30 },
+        { scale: 1, opacity: 1, y: 0, duration: 1.1, ease: 'power3.out' },
+        '-=0.7'
       )
       .fromTo(
         [subtitleRef.current, scrollIndicatorRef.current],
         { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.9, stagger: 0.15, ease: 'power3.out' },
-        '-=0.6'
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out' },
+        '-=0.5'
       );
 
       // 2. SCROLL-DRIVEN CENTER & SCALE ANIMATION (Image glides to center & expands immediately on scroll)
