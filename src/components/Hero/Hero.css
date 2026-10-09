@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 7.5rem 0 4rem;
+  padding: 5.5rem 0 2rem;
   background-color: var(--bg-primary);
   overflow: hidden;
   will-change: transform;
@@ -42,7 +42,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.25em;
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   text-transform: uppercase;
 }
 
@@ -62,9 +62,9 @@
 .hero-main-content-layout {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 3rem;
+  gap: 2.5rem;
   align-items: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero-headline-container {
@@ -112,7 +112,7 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 440px;
+  max-width: clamp(320px, 24vw, 380px);
   aspect-ratio: 3 / 4;
   margin: 0 auto;
   border-radius: 16px;
@@ -180,7 +180,7 @@
   justify-content: space-between;
   align-items: flex-end;
   border-top: 1px solid var(--border-subtle);
-  padding-top: 2rem;
+  padding-top: 1.25rem;
   margin-top: auto;
 }
 

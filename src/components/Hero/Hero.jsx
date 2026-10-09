@@ -25,7 +25,7 @@ export function Hero() {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // 1. Initial entrance reveal
+      // 1. Initial entrance reveal on page load
       const entranceTl = gsap.timeline({ delay: 0.1 });
 
       entranceTl.fromTo(
@@ -40,18 +40,19 @@ export function Hero() {
         '-=0.6'
       )
       .fromTo(
-        subtitleRef.current,
+        [subtitleRef.current, scrollIndicatorRef.current],
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out' },
         '-=0.4'
       );
 
-      // 2. SCROLL-DRIVEN CENTER & SCALE ANIMATION (Image grows & moves to center on scroll)
+      // 2. SCROLL-DRIVEN 2-STAGE ANIMATION
+      // Stage 1: Content animates out -> Stage 2: Image expands & comes to center
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: heroRef.current,
           start: 'top top',
-          end: '+=100%', // Pinned scroll duration
+          end: '+=120%', // Pinned scroll duration for complete motion story
           scrub: 1,      // Smooth interactive scroll response
           pin: true,
           anticipatePin: 1,
@@ -60,17 +61,33 @@ export function Hero() {
       });
 
       scrollTl
-        // Fade out and recede kinetic headline & meta
-        .to(line1Ref.current, { xPercent: -35, opacity: 0, scale: 0.85, ease: 'power1.in' }, 0)
-        .to(line2Ref.current, { xPercent: -35, opacity: 0, scale: 0.85, ease: 'power1.in' }, 0)
-        .to(line3Ref.current, { xPercent: -35, opacity: 0, scale: 0.85, ease: 'power1.in' }, 0)
-        .to(subtitleRef.current, { opacity: 0, y: 30, ease: 'power1.in' }, 0)
-        .to(scrollIndicatorRef.current, { opacity: 0, scale: 0.6, ease: 'power1.in' }, 0)
-        // Expand and Translate Portrait Frame directly into Horizontal Center
+        // STAGE 1 (Scroll 0.0 -> 0.35): Content animates out (text, description, scroll indicator fade away)
+        .to([line1Ref.current, line2Ref.current, line3Ref.current], { 
+          xPercent: -25, 
+          y: -30, 
+          opacity: 0, 
+          stagger: 0.04, 
+          ease: 'power1.in', 
+          duration: 0.35 
+        }, 0)
+        .to(subtitleRef.current, { 
+          opacity: 0, 
+          y: 25, 
+          ease: 'power1.in', 
+          duration: 0.35 
+        }, 0)
+        .to(scrollIndicatorRef.current, { 
+          opacity: 0, 
+          scale: 0.6, 
+          ease: 'power1.in', 
+          duration: 0.35 
+        }, 0)
+
+        // STAGE 2 (Scroll 0.35 -> 1.0): AFTER content animation, Image effect happens (glides to center & expands big)
         .to(imageWrapperRef.current, {
           x: () => {
             if (!imageWrapperRef.current || !heroRef.current) return 0;
-            if (window.innerWidth <= 992) return 0; // Already single column layout on mobile/tablet
+            if (window.innerWidth <= 992) return 0; // Single column on tablet/mobile is already centered
             const container = heroRef.current.querySelector('.hero-container');
             if (!container) return 0;
             
@@ -84,23 +101,24 @@ export function Hero() {
             return containerCenter - rawImageCenter;
           },
           scale: () => {
-            if (window.innerWidth <= 480) return 1.22;
-            if (window.innerWidth <= 768) return 1.32;
-            if (window.innerHeight <= 700) return 1.4;
+            if (window.innerWidth <= 480) return 1.25;
+            if (window.innerWidth <= 768) return 1.35;
+            if (window.innerHeight <= 700) return 1.45;
             return 1.65;
           },
-          y: () => (window.innerWidth <= 992 ? 0 : 15),
+          y: () => (window.innerWidth <= 992 ? 0 : 10),
           rotate: 0,
-          borderColor: 'rgba(184, 255, 60, 0.55)',
-          boxShadow: '0 40px 110px rgba(184, 255, 60, 0.38), 0 0 50px rgba(184, 255, 60, 0.25)',
-          ease: 'power2.inOut'
-        }, 0)
-        // Parallax inner image zoom for dramatic depth
+          borderColor: 'rgba(184, 255, 60, 0.6)',
+          boxShadow: '0 40px 120px rgba(184, 255, 60, 0.45), 0 0 60px rgba(184, 255, 60, 0.25)',
+          ease: 'power2.inOut',
+          duration: 0.65
+        }, 0.35)
         .to(imageRef.current, {
-          scale: 1.2,
+          scale: 1.25,
           y: -10,
-          ease: 'power2.inOut'
-        }, 0);
+          ease: 'power2.inOut',
+          duration: 0.65
+        }, 0.35);
 
     }, heroRef);
 
